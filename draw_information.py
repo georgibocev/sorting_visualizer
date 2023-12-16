@@ -8,10 +8,10 @@ class DrawInformation:
     Class representing information for sorting algorithm visualization.
     """
     BLACK = 0, 0, 0
-    WHITE = 255, 255, 255
+    LIGHT_GREY = 85, 89, 97
     GREEN = 0, 255, 0
     RED = 255, 0, 0
-    BACKGROUND_COLOR = WHITE
+    BACKGROUND_COLOR = LIGHT_GREY
 
     GRADIENTS = [
         (74, 222, 222),
@@ -59,7 +59,7 @@ class DrawInformation:
         self.min_val = min(lst)
         self.max_val = max(lst)
 
-        self.block_width = round((self.__width - self.SIDE_PAD) / len(lst))
+        self.block_width = round((self.width - self.SIDE_PAD) / len(lst))
         self.block_height = math.floor((self.height - self.TOP_PAD) / (self.max_val - self.min_val))
         self.start_x = self.SIDE_PAD // 2
 
@@ -78,7 +78,7 @@ class DrawInformation:
         """
         if clear_bg:
             clear_rect = (self.SIDE_PAD // 2, self.TOP_PAD,
-                          self.__width - self.SIDE_PAD, self.height - self.TOP_PAD)
+                          self.width - self.SIDE_PAD, self.height - self.TOP_PAD)
             pygame.draw.rect(self.window, self.BACKGROUND_COLOR, clear_rect)
 
         for i, val in enumerate(self.lst):
